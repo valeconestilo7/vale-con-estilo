@@ -14,11 +14,14 @@ collections:
         label: "Catálogo de sandalias"
         file: "data/productos.json"
         fields:
-          - { label: "Productos", name: "productos", widget: "list", label_singular: "Producto", fields:
+          - label: "Productos"
+            name: "productos"
+            widget: "list"
+            label_singular: "Producto"
+            fields:
               - { label: "ID", name: "id", widget: "number", value_type: "int" }
               - { label: "Nombre", name: "nombre", widget: "string" }
               - { label: "Categoría", name: "categoria", widget: "select", options: ["Plana", "Plataforma", "Tacón", "Trenzada"] }
               - { label: "Descripción", name: "descripcion", widget: "text" }
               - { label: "Precio (COP)", name: "precio", widget: "number", value_type: "int" }
               - { label: "Foto", name: "imagen", widget: "image", required: false, choose_url: false }
-            }
