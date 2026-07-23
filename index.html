@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vale con Estilo — Sandalias para mujer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde-tinta:   #8C4A6E;
+    --verde-tinta-2: #6B2E4E;
+    --crema:         #FBEFE9;
+    --crema-suave:   #FFFBF7;
+    --dorado:        #C9932E;
+    --dorado-claro:  #E8CE94;
+    --terracota:     #D98CAE;
+    --hueso:         #FBF3EE;
+    --tinta:         #3A2233;
+    --linea:         rgba(58,34,51,0.12);
+    --sombra:        0 18px 40px -20px rgba(58,34,51,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--crema-suave);
+    color:var(--tinta);
+    font-family:'Manrope',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    margin:0;
+    color:var(--tinta);
+  }
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--dorado);
+  }
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  button{font-family:inherit;cursor:pointer;}
+
+  :focus-visible{
+    outline:2px solid var(--dorado);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- layout shells ---------- */
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  section{padding:96px 0;}
+  @media (max-width:720px){ section{padding:64px 0;} .wrap{padding:0 20px;} }
+
+  /* ---------- nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:40;
+    background:rgba(250,247,240,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--linea);
+  }
+  .nav-inner{
+    max-width:1180px;margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;letter-spacing:0.01em;
+  }
+  .brand svg{width:30px;height:30px;}
+  nav.links{display:flex;gap:28px;font-size:0.92rem;font-weight:600;}
+  nav.links a{text-decoration:none;color:var(--tinta);opacity:0.75;transition:opacity .2s;}
+  nav.links a:hover{opacity:1;}
+  .cart-pill{
+    display:flex;align-items:center;gap:8px;
+    background:var(--verde-tinta);color:var(--hueso);
+    padding:9px 16px;border-radius:999px;border:none;
+    font-weight:700;font-size:0.86rem;
+    transition:transform .15s ease;
+  }
+  .cart-pill:hover{transform:translateY(-1px);}
+  .cart-count{
+    background:var(--dorado);color:var(--tinta);
+    border-radius:999px;min-width:20px;height:20px;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:0.74rem;padding:0 5px;font-family:'Space Mono',monospace;
+  }
+  @media (max-width:720px){ nav.links{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--verde-tinta);
+    color:var(--hueso);
+    position:relative;
+    overflow:hidden;
+    padding:110px 0 90px;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;
+  }
+  @media (max-width:860px){ .hero-grid{grid-template-columns:1fr;} .hero{padding:80px 0 60px;} }
+  .hero h1{
+    color:var(--hueso);
+    font-size:clamp(2.4rem, 5vw, 4rem);
+    line-height:1.04;
+    letter-spacing:-0.01em;
+    margin:14px 0 22px;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--dorado-claro);
+  }
+  .hero p.lede{
+    font-size:1.08rem;line-height:1.6;color:rgba(247,243,232,0.82);
+    max-width:46ch;margin-bottom:32px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 26px;border-radius:999px;border:none;
+    font-weight:700;font-size:0.95rem;text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-gold{background:var(--dorado);color:var(--tinta);}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 24px -8px rgba(201,154,62,0.55);}
+  .btn-ghost{background:transparent;color:var(--hueso);border:1.5px solid rgba(247,243,232,0.4);}
+  .btn-ghost:hover{border-color:var(--hueso);}
+  .btn-dark{background:var(--verde-tinta);color:var(--hueso);}
+  .btn-dark:hover{transform:translateY(-2px);}
+
+  .hero-art{position:relative;}
+  .hero-art svg{width:100%;height:auto;}
+
+  /* strap divider */
+  .strap-divider{width:100%;height:56px;display:block;}
+
+  /* ---------- steps ---------- */
+  .steps{background:var(--crema);}
+  .steps-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px;
+  }
+  @media (max-width:820px){ .steps-grid{grid-template-columns:1fr;} }
+  .step{
+    background:var(--crema-suave);
+    border:1px solid var(--linea);
+    border-radius:18px;
+    padding:30px 26px;
+  }
+  .step .num{
+    font-family:'Space Mono',monospace;
+    color:var(--terracota);
+    font-size:0.85rem;
+    margin-bottom:14px;
+    display:block;
+  }
+  .step h3{font-size:1.15rem;margin-bottom:8px;}
+  .step p{margin:0;color:rgba(58,34,51,0.7);line-height:1.55;font-size:0.95rem;}
+
+  /* ---------- catalog ---------- */
+  .catalog-head{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;
+    margin-bottom:36px;
+  }
+  .filters{display:flex;gap:10px;flex-wrap:wrap;}
+  .filter-btn{
+    background:var(--crema);border:1px solid var(--linea);
+    color:var(--tinta);padding:9px 18px;border-radius:999px;
+    font-size:0.85rem;font-weight:600;transition:all .15s ease;
+  }
+  .filter-btn:hover{border-color:var(--dorado);}
+  .filter-btn.active{background:var(--verde-tinta);color:var(--hueso);border-color:var(--verde-tinta);}
+
+  .grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
+  }
+  @media (max-width:920px){ .grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:600px){ .grid{grid-template-columns:1fr;} }
+
+  .card{
+    background:var(--crema-suave);
+    border:1px solid var(--linea);
+    border-radius:20px;
+    padding:22px 22px 24px;
+    display:flex;flex-direction:column;
+    transition:transform .2s ease, box-shadow .2s ease;
+    opacity:0; transform:translateY(16px);
+    animation:rise .5s ease forwards;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:var(--sombra);}
+  @keyframes rise{ to{opacity:1; transform:translateY(0);} }
+
+  .card-icon{
+    background:var(--crema);
+    border-radius:14px;
+    padding:22px;
+    margin-bottom:16px;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .card-icon svg{width:100%;height:110px;}
+  .card-icon.has-photo{
+    padding:0;
+    aspect-ratio:4/3;
+  }
+  .card-icon.has-photo img{
+    width:100%;height:100%;object-fit:cover;border-radius:14px;
+    display:block;
+  }
+  .card-cat{
+    font-family:'Space Mono',monospace;
+    font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--terracota);margin-bottom:6px;
+  }
+  .card h3{font-size:1.18rem;margin-bottom:6px;}
+  .card p.desc{
+    font-size:0.9rem;color:rgba(58,34,51,0.65);line-height:1.5;
+    margin:0 0 16px;flex-grow:1;
+  }
+  .card .price{
+    font-family:'Space Mono',monospace;font-weight:700;font-size:1.15rem;
+    color:var(--verde-tinta);margin-bottom:16px;
+  }
+  .card-controls{display:flex;gap:10px;}
+  .size-select{
+    flex:1;padding:10px 12px;border-radius:10px;border:1px solid var(--linea);
+    background:var(--crema-suave);font-family:inherit;font-size:0.88rem;font-weight:600;
+  }
+  .add-btn{
+    background:var(--verde-tinta);color:var(--hueso);border:none;
+    padding:10px 16px;border-radius:10px;font-weight:700;font-size:0.85rem;
+    display:flex;align-items:center;gap:6px;white-space:nowrap;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .add-btn:hover{background:#4D2540;}
+  .add-btn.added{background:var(--dorado);color:var(--tinta);}
+
+  /* ---------- about / signature strip ---------- */
+  .about{
+    background:var(--verde-tinta);color:var(--hueso);
+    position:relative;
+  }
+  .about-grid{
+    display:grid;grid-template-columns:0.8fr 1.2fr;gap:48px;align-items:center;
+  }
+  @media (max-width:820px){ .about-grid{grid-template-columns:1fr;} }
+  .about h2{color:var(--hueso);font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.12;margin-bottom:18px;}
+  .about p{color:rgba(247,243,232,0.8);line-height:1.65;font-size:1rem;max-width:52ch;}
+  .about-art svg{width:100%;height:auto;}
+
+  /* ---------- contact ---------- */
+  .contact{background:var(--crema);}
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;
+  }
+  @media (max-width:860px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact-info h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:14px;}
+  .contact-info p{color:rgba(58,34,51,0.7);line-height:1.6;margin-bottom:26px;max-width:46ch;}
+  .contact-channels{display:flex;flex-direction:column;gap:14px;}
+  .channel{
+    display:flex;align-items:center;gap:14px;
+    background:var(--crema-suave);border:1px solid var(--linea);
+    padding:16px 18px;border-radius:14px;text-decoration:none;color:var(--tinta);
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .channel:hover{transform:translateX(4px);border-color:var(--dorado);}
+  .channel .ic{
+    width:40px;height:40px;border-radius:10px;background:var(--verde-tinta);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .channel .ic svg{width:20px;height:20px;stroke:var(--hueso);}
+  .channel strong{display:block;font-size:0.95rem;}
+  .channel span{font-size:0.82rem;color:rgba(58,34,51,0.6);}
+
+  form.order-form{
+    background:var(--crema-suave);border:1px solid var(--linea);
+    border-radius:20px;padding:30px;
+  }
+  form.order-form label{
+    display:block;font-size:0.82rem;font-weight:700;margin-bottom:6px;color:var(--tinta);
+  }
+  form.order-form .field{margin-bottom:18px;}
+  form.order-form input,
+  form.order-form textarea{
+    width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--linea);
+    font-family:inherit;font-size:0.92rem;background:#fff;resize:vertical;
+  }
+  form.order-form textarea{min-height:96px;}
+  .form-submit{width:100%;justify-content:center;}
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--tinta);color:rgba(247,243,232,0.6);
+    padding:34px 0;text-align:center;font-size:0.84rem;
+  }
+  footer strong{color:var(--hueso);}
+
+  /* ---------- order drawer ---------- */
+  .drawer-backdrop{
+    position:fixed;inset:0;background:rgba(58,34,51,0.45);
+    opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:60;
+  }
+  .drawer-backdrop.open{opacity:1;pointer-events:auto;}
+  .drawer{
+    position:fixed;top:0;right:0;height:100%;width:min(400px,92vw);
+    background:var(--crema-suave);z-index:61;
+    box-shadow:-20px 0 50px -20px rgba(0,0,0,0.3);
+    transform:translateX(100%);transition:transform .3s ease;
+    display:flex;flex-direction:column;
+  }
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{
+    padding:24px 24px 16px;border-bottom:1px solid var(--linea);
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .drawer-head h3{font-size:1.3rem;}
+  .drawer-close{background:none;border:none;font-size:1.4rem;line-height:1;color:var(--tinta);padding:4px;}
+  .drawer-items{flex:1;overflow-y:auto;padding:16px 24px;}
+  .drawer-empty{color:rgba(58,34,51,0.55);font-size:0.92rem;padding:24px 0;text-align:center;}
+  .drawer-item{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 0;border-bottom:1px solid var(--linea);gap:10px;
+  }
+  .drawer-item-name{font-weight:700;font-size:0.92rem;}
+  .drawer-item-meta{font-size:0.8rem;color:rgba(58,34,51,0.6);font-family:'Space Mono',monospace;}
+  .drawer-item-remove{background:none;border:none;color:var(--terracota);font-size:0.8rem;font-weight:700;padding:6px;}
+  .drawer-foot{padding:20px 24px 26px;border-top:1px solid var(--linea);}
+  .drawer-total{
+    display:flex;justify-content:space-between;font-family:'Space Mono',monospace;
+    font-weight:700;font-size:1.05rem;margin-bottom:16px;
+  }
+  .drawer-send{width:100%;justify-content:center;}
+
+  .toast{
+    position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:var(--verde-tinta);color:var(--hueso);
+    padding:12px 22px;border-radius:999px;font-size:0.88rem;font-weight:600;
+    opacity:0;pointer-events:none;transition:all .25s ease;z-index:70;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <svg viewBox="0 0 40 40" fill="none"><path d="M8 26 Q20 34 32 26 Q30 14 20 10 Q10 14 8 26Z" stroke="#C9932E" stroke-width="2"/><path d="M14 14 L26 24 M26 14 L14 24" stroke="#8C4A6E" stroke-width="2" stroke-linecap="round"/></svg>
+      Vale con Estilo
+    </div>
+    <nav class="links">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="cart-pill" id="openDrawer" aria-haspopup="dialog" aria-controls="drawer">
+      Mi pedido <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Sandalias hechas a mano · Envíos a todo el país</span>
+      <h1>Sandalias que llevan <em>tu paso</em> a todas partes</h1>
+      <p class="lede">Diseños cómodos y con carácter para mujeres que no se detienen. Elige tu talla, arma tu pedido y confírmalo directo por WhatsApp — sin filas, sin complicaciones.</p>
+      <div class="hero-ctas">
+        <a href="#catalogo" class="btn btn-gold">Ver catálogo</a>
+        <a href="#contacto" class="btn btn-ghost">Hablar por WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 420 320" fill="none">
+        <ellipse cx="210" cy="270" rx="150" ry="16" fill="rgba(0,0,0,0.15)"/>
+        <path d="M70 200 Q80 90 210 70 Q340 90 350 200 Q345 235 300 245 L120 245 Q75 235 70 200Z" stroke="#E8CE94" stroke-width="3" fill="none"/>
+        <path d="M120 100 L300 190 M300 100 L120 190" stroke="#FBF3EE" stroke-width="3" stroke-linecap="round"/>
+        <path d="M150 245 Q210 210 270 245" stroke="#C9932E" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="210" cy="130" r="4" fill="#C9932E"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<svg class="strap-divider" viewBox="0 0 1200 56" preserveAspectRatio="none"><path d="M0 28 Q150 0 300 28 T600 28 T900 28 T1200 28 V56 H0Z" fill="#FBEFE9"/></svg>
+
+<!-- ============ STEPS ============ -->
+<section class="steps" id="pasos">
+  <div class="wrap">
+    <span class="eyebrow">Cómo funciona</span>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.2rem); margin-top:10px;">De la vitrina a tu puerta, en tres pasos</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <span class="num">01</span>
+        <h3>Elige tu talla</h3>
+        <p>Explora el catálogo y selecciona el modelo y la talla que más te gusten.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h3>Arma tu pedido</h3>
+        <p>Agrega tantos pares como quieras a tu pedido; puedes revisarlo cuando quieras.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h3>Confirma por WhatsApp</h3>
+        <p>Enviamos tu pedido armado directo al chat para confirmar disponibilidad y pago.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATALOG ============ -->
+<section id="catalogo">
+  <div class="wrap">
+    <div class="catalog-head">
+      <div>
+        <span class="eyebrow">Catálogo</span>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.2rem); margin-top:10px;">Nuestras sandalias</h2>
+      </div>
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-filter="todas">Todas</button>
+        <button class="filter-btn" data-filter="Plana">Planas</button>
+        <button class="filter-btn" data-filter="Plataforma">Plataforma</button>
+        <button class="filter-btn" data-filter="Tacón">Tacón</button>
+        <button class="filter-btn" data-filter="Trenzada">Trenzadas</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="nosotros">
+  <div class="wrap about-grid">
+    <div class="about-art">
+      <svg viewBox="0 0 260 260" fill="none">
+        <circle cx="130" cy="130" r="120" stroke="#C9932E" stroke-width="1.5" opacity="0.5"/>
+        <path d="M60 150 Q70 60 130 45 Q190 60 200 150 Q195 180 160 188 L100 188 Q65 180 60 150Z" stroke="#FBF3EE" stroke-width="2.5"/>
+        <path d="M95 80 L165 145 M165 80 L95 145" stroke="#E8CE94" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <span class="eyebrow">Nuestra huella</span>
+      <h2>Cada par se hace pensando en cómo caminas tu día</h2>
+      <p>Trabajamos con talleres pequeños y materiales duraderos para ofrecerte sandalias cómodas desde el primer paso. Nada de producción en masa: cada pedido se prepara y se confirma contigo, uno a uno.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contacto">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow">Contacto</span>
+      <h2 style="margin-top:10px;">¿Tienes dudas o quieres un pedido especial?</h2>
+      <p>Escríbenos y te respondemos lo antes posible. También puedes armar tu pedido en el catálogo y enviarlo directo por WhatsApp.</p>
+      <div class="contact-channels">
+        <a class="channel" id="whatsappChannel" href="#" target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span><strong>WhatsApp</strong><span>Respuesta rápida — pedidos y dudas</span></span>
+        </a>
+        <a class="channel" href="mailto:valeconestilo7@gmail.com">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span><strong>Correo</strong><span>valeconestilo7@gmail.com</span></span>
+        </a>
+        <a class="channel" href="https://www.instagram.com/valeconestilo7/" target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></span>
+          <span><strong>Instagram</strong><span>@valeconestilo7</span></span>
+        </a>
+      </div>
+    </div>
+
+    <form class="order-form" id="contactForm">
+      <div class="field">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" required placeholder="¿Cómo te llamas?">
+      </div>
+      <div class="field">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" required placeholder="Tu número de contacto">
+      </div>
+      <div class="field">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" required placeholder="Cuéntanos qué buscas: modelo, talla, color..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-dark form-submit">Enviar mensaje por WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><strong>Vale con Estilo</strong> — Sandalias para mujer · Hecho con cariño para caminar tu historia</div>
+</footer>
+
+<!-- ============ ORDER DRAWER ============ -->
+<div class="drawer-backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-label="Mi pedido">
+  <div class="drawer-head">
+    <h3>Mi pedido</h3>
+    <button class="drawer-close" id="closeDrawer" aria-label="Cerrar">&times;</button>
+  </div>
+  <div class="drawer-items" id="drawerItems">
+    <p class="drawer-empty">Aún no has agregado sandalias a tu pedido.</p>
+  </div>
+  <div class="drawer-foot">
+    <div class="drawer-total"><span>Total</span><span id="drawerTotal">$0</span></div>
+    <button class="btn btn-gold drawer-send" id="sendOrder">Enviar pedido por WhatsApp</button>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================================================
+   CONFIGURA AQUÍ TU CONTACTO
+   Reemplaza el número por el tuyo, formato: código país + número, sin + ni espacios
+   Ejemplo Colombia: "573001234567"
+   ========================================================= */
+const WHATSAPP_NUMBER = "573204674356";
+
+/* -------- catálogo de productos --------
+   Los productos ahora se cargan desde data/productos.json
+   (ese es el archivo que tu panel de administración /admin edita).
+   Este arreglo de respaldo solo se usa si el navegador no puede
+   descargar el JSON (por ejemplo, al abrir el archivo directo
+   desde tu computador sin subirlo a internet). */
+const productosRespaldo = [
+  { id:1, nombre:"Sandalia Trenza Fucsia",  categoria:"Trenzada", descripcion:"Tira trenzada en fucsia vibrante, suela plana flexible.", precio:85000, imagen:"images/sandalia-trenza-fucsia.jpg" },
+  { id:2, nombre:"Plataforma Sol",          categoria:"Plataforma", descripcion:"Suela alta con tiras cruzadas al frente.", precio:110000, imagen:"" },
+  { id:3, nombre:"Plana Hebilla Multicolor",categoria:"Plana", descripcion:"Tira ancha con hebilla metálica. Disponible en varios colores.", precio:70000, imagen:"images/sandalia-hebilla-colores.jpg" },
+  { id:4, nombre:"Tacón Atardecer",         categoria:"Tacón", descripcion:"Tacón medio cómodo con correa al tobillo.", precio:135000, imagen:"" },
+  { id:5, nombre:"Plana Clásica Oran",      categoria:"Plana", descripcion:"Diseño de tira ancha estilo clásico. Disponible en varios colores.", precio:95000, imagen:"images/sandalia-oran-colores.jpg" },
+  { id:6, nombre:"Plataforma Raíz",         categoria:"Plataforma", descripcion:"Suela de esparto natural, estilo boho.", precio:120000, imagen:"" },
+];
+let productos = [];
+const TALLAS = [35,36,37,38,39,40];
+
+const sandalIcon = `<svg viewBox="0 0 140 110" fill="none">
+  <path d="M20 70 Q26 20 70 14 Q114 20 120 70 Q116 92 96 96 L44 96 Q24 92 20 70Z" stroke="#8C4A6E" stroke-width="2.5"/>
+  <path d="M42 32 L98 66 M98 32 L42 66" stroke="#C9932E" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M50 96 Q70 82 90 96" stroke="#D98CAE" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+</svg>`;
+
+const grid = document.getElementById('grid');
+const filtersEl = document.getElementById('filters');
+let pedido = []; // {id, nombre, talla, precio}
+
+function money(n){
+  return "$" + n.toLocaleString('es-CO');
+}
+
+function renderGrid(filter){
+  grid.innerHTML = "";
+  const lista = filter === "todas" ? productos : productos.filter(p => p.categoria === filter);
+  lista.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = "card";
+    card.style.animationDelay = (i * 0.06) + "s";
+    card.innerHTML = `
+      <div class="card-icon${p.imagen ? ' has-photo' : ''}">${p.imagen ? `<img src="${p.imagen}" alt="${p.nombre}">` : sandalIcon}</div>
+      <div class="card-cat">${p.categoria}</div>
+      <h3>${p.nombre}</h3>
+      <p class="desc">${p.descripcion}</p>
+      <div class="price">${money(p.precio)}</div>
+      <div class="card-controls">
+        <select class="size-select" aria-label="Talla">
+          ${TALLAS.map(t => `<option value="${t}">Talla ${t}</option>`).join("")}
+        </select>
+        <button class="add-btn" type="button">Agregar</button>
+      </div>
+    `;
+    const btn = card.querySelector('.add-btn');
+    const select = card.querySelector('.size-select');
+    btn.addEventListener('click', () => {
+      pedido.push({ id:p.id, nombre:p.nombre, talla:select.value, precio:p.precio, key: Date.now()+Math.random() });
+      updateCart();
+      btn.textContent = "Agregado ✓";
+      btn.classList.add('added');
+      showToast(`${p.nombre} (talla ${select.value}) agregada al pedido`);
+      setTimeout(() => { btn.textContent = "Agregar"; btn.classList.remove('added'); }, 1200);
+    });
+    grid.appendChild(card);
+  });
+}
+
+filtersEl.addEventListener('click', (e) => {
+  const btn = e.target.closest('.filter-btn');
+  if(!btn) return;
+  filtersEl.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid(btn.dataset.filter);
+});
+
+/* -------- carrito / drawer -------- */
+const drawer = document.getElementById('drawer');
+const backdrop = document.getElementById('backdrop');
+const drawerItems = document.getElementById('drawerItems');
+const drawerTotal = document.getElementById('drawerTotal');
+const cartCount = document.getElementById('cartCount');
+
+function updateCart(){
+  cartCount.textContent = pedido.length;
+  if(pedido.length === 0){
+    drawerItems.innerHTML = `<p class="drawer-empty">Aún no has agregado sandalias a tu pedido.</p>`;
+  } else {
+    drawerItems.innerHTML = pedido.map(item => `
+      <div class="drawer-item">
+        <div>
+          <div class="drawer-item-name">${item.nombre}</div>
+          <div class="drawer-item-meta">Talla ${item.talla} · ${money(item.precio)}</div>
+        </div>
+        <button class="drawer-item-remove" data-key="${item.key}">Quitar</button>
+      </div>
+    `).join("");
+  }
+  const total = pedido.reduce((sum, i) => sum + i.precio, 0);
+  drawerTotal.textContent = money(total);
+}
+
+drawerItems.addEventListener('click', (e) => {
+  const btn = e.target.closest('.drawer-item-remove');
+  if(!btn) return;
+  const key = btn.dataset.key;
+  pedido = pedido.filter(i => String(i.key) !== key);
+  updateCart();
+});
+
+document.getElementById('openDrawer').addEventListener('click', () => {
+  drawer.classList.add('open'); backdrop.classList.add('open');
+});
+function closeDrawerFn(){ drawer.classList.remove('open'); backdrop.classList.remove('open'); }
+document.getElementById('closeDrawer').addEventListener('click', closeDrawerFn);
+backdrop.addEventListener('click', closeDrawerFn);
+
+document.getElementById('sendOrder').addEventListener('click', () => {
+  if(pedido.length === 0){
+    showToast("Agrega al menos una sandalia a tu pedido");
+    return;
+  }
+  const lineas = pedido.map(i => `• ${i.nombre} — talla ${i.talla} — ${money(i.precio)}`).join("%0A");
+  const total = pedido.reduce((sum, i) => sum + i.precio, 0);
+  const msg = `Hola Vale con Estilo 👋, quiero hacer este pedido:%0A%0A${lineas}%0A%0ATotal: ${money(total)}`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
+});
+
+/* -------- formulario de contacto -------- */
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const nombre = document.getElementById('nombre').value.trim();
+  const telefono = document.getElementById('telefono').value.trim();
+  const mensaje = document.getElementById('mensaje').value.trim();
+  const texto = `Hola Vale con Estilo 👋, soy ${nombre} (${telefono}).%0A${encodeURIComponent(mensaje)}`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`, '_blank');
+});
+
+/* -------- link de whatsapp del header de contacto -------- */
+document.getElementById('whatsappChannel').href = `https://wa.me/${WHATSAPP_NUMBER}`;
+
+/* -------- toast -------- */
+let toastTimer;
+function showToast(text){
+  const toast = document.getElementById('toast');
+  toast.textContent = text;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+fetch('data/productos.json')
+  .then(res => res.json())
+  .then(data => { productos = data.productos; renderGrid('todas'); })
+  .catch(() => { productos = productosRespaldo; renderGrid('todas'); });
+</script>
+</body>
+</html>

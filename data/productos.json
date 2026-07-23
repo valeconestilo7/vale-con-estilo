@@ -1,0 +1,10 @@
+{
+  "productos": [
+    { "id": 1, "nombre": "Sandalia Trenza Fucsia", "categoria": "Trenzada", "descripcion": "Tira trenzada en fucsia vibrante, suela plana flexible.", "precio": 85000, "imagen": "images/sandalia-trenza-fucsia.jpg" },
+    { "id": 2, "nombre": "Plataforma Sol", "categoria": "Plataforma", "descripcion": "Suela alta con tiras cruzadas al frente.", "precio": 110000, "imagen": "" },
+    { "id": 3, "nombre": "Plana Hebilla Multicolor", "categoria": "Plana", "descripcion": "Tira ancha con hebilla metálica. Disponible en varios colores.", "precio": 70000, "imagen": "images/sandalia-hebilla-colores.jpg" },
+    { "id": 4, "nombre": "Tacón Atardecer", "categoria": "Tacón", "descripcion": "Tacón medio cómodo con correa al tobillo.", "precio": 135000, "imagen": "" },
+    { "id": 5, "nombre": "Plana Clásica Oran", "categoria": "Plana", "descripcion": "Diseño de tira ancha estilo clásico. Disponible en varios colores.", "precio": 95000, "imagen": "images/sandalia-oran-colores.jpg" },
+    { "id": 6, "nombre": "Plataforma Raíz", "categoria": "Plataforma", "descripcion": "Suela de esparto natural, estilo boho.", "precio": 120000, "imagen": "" }
+  ]
+}
