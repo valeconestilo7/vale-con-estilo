@@ -6,7 +6,7 @@
       "categoria": "Trenzada",
       "descripcion": "Tira trenzada en fucsia vibrante, suela plana flexible.",
       "precio": 30000,
-      "imagen": "images/sandalia-trenza-fucsia.jpg"
+      "imagen": "images/sandalia-hebilla-colores.jpg"
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "categoria": "Plana",
       "descripcion": "Tira ancha con hebilla metálica. Disponible en varios colores.",
       "precio": 30000,
-      "imagen": "images/sandalia-hebilla-colores.jpg"
+      "imagen": "images/sandalia-oran-colores.jpg"
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "categoria": "Plana",
       "descripcion": "Diseño de tira ancha estilo clásico. Disponible en varios colores.",
       "precio": 29996,
-      "imagen": "images/sandalia-oran-colores.jpg"
+      "imagen": "images/sandalia-trenza-fucsia.jpg"
     },
     {
       "id": 6,
