@@ -76,7 +76,7 @@
     display:flex;align-items:center;gap:10px;
     font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;letter-spacing:0.01em;
   }
-  .brand svg{width:30px;height:30px;}
+  .brand svg, .brand img{width:30px;height:auto;}
   nav.links{display:flex;gap:28px;font-size:0.92rem;font-weight:600;}
   nav.links a{text-decoration:none;color:var(--tinta);opacity:0.75;transition:opacity .2s;}
   nav.links a:hover{opacity:1;}
@@ -315,6 +315,12 @@
     padding:34px 0;text-align:center;font-size:0.84rem;
   }
   footer strong{color:var(--hueso);}
+  .footer-logo{
+    width:150px;height:auto;margin:0 auto 14px;
+    background:var(--crema-suave);
+    border-radius:16px;
+    padding:10px;
+  }
 
   /* ---------- order drawer ---------- */
   .drawer-backdrop{
@@ -377,7 +383,7 @@
 <header class="nav">
   <div class="nav-inner">
     <div class="brand">
-      <svg viewBox="0 0 40 40" fill="none"><path d="M8 26 Q20 34 32 26 Q30 14 20 10 Q10 14 8 26Z" stroke="#C9932E" stroke-width="2"/><path d="M14 14 L26 24 M26 14 L14 24" stroke="#8C4A6E" stroke-width="2" stroke-linecap="round"/></svg>
+      <img src="images/logo-icon.png" alt="" width="30" height="24">
       Vale con Estilo
     </div>
     <nav class="links">
@@ -538,7 +544,10 @@
 </section>
 
 <footer>
-  <div class="wrap"><strong>Vale con Estilo</strong> — Sandalias para mujer · Hecho con cariño para caminar tu historia</div>
+  <div class="wrap">
+    <img src="images/logo-full.png" alt="Vale con Estilo" class="footer-logo">
+    <div>Sandalias para mujer · Hecho con cariño para caminar tu historia</div>
+  </div>
 </footer>
 
 <!-- ============ ORDER DRAWER ============ -->
