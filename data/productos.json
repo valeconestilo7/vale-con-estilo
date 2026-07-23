@@ -55,6 +55,14 @@
       "descripcion": "Sandalia plana con lazo grande y hebilla dorada. Disponible en beige, menta, rojo, azul, siena, lila, fucsia y negro.",
       "precio": 30000,
       "imagen": "images/whatsapp-image-2026-07-22-at-9.21.38-am.jpeg"
+    },
+    {
+      "id": 8,
+      "nombre": "Sandalia Animal Print",
+      "categoria": "Plana",
+      "descripcion": "Sandalia plana con textura tejida en estampado animal print. Disponible en negro, mostaza, beige y crema.",
+      "precio": 29997,
+      "imagen": "images/whatsapp-image-2026-07-22-at-9.21.39-am.jpeg"
     }
   ]
 }
