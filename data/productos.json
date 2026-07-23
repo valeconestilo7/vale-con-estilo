@@ -47,6 +47,14 @@
       "descripcion": "Suela de esparto natural, estilo boho.",
       "precio": 120000,
       "imagen": ""
+    },
+    {
+      "id": 7,
+      "nombre": "Sandalia Lazo Dorado",
+      "categoria": "Plana",
+      "descripcion": "Sandalia plana con lazo grande y hebilla dorada. Disponible en beige, menta, rojo, azul, siena, lila, fucsia y negro.",
+      "precio": 30000,
+      "imagen": "images/whatsapp-image-2026-07-22-at-9.21.38-am.jpeg"
     }
   ]
 }
