@@ -255,6 +255,20 @@
   .about p{color:rgba(247,243,232,0.8);line-height:1.65;font-size:1rem;max-width:52ch;}
   .about-art svg{width:100%;height:auto;}
 
+  /* ---------- visítanos (más modelos) ---------- */
+  .showcase{background:var(--crema);}
+  .showcase-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;
+  }
+  @media (max-width:860px){ .showcase-grid{grid-template-columns:1fr;} }
+  .showcase-photo{
+    border-radius:20px;overflow:hidden;box-shadow:var(--sombra);
+    aspect-ratio:4/5;
+  }
+  .showcase-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .showcase-text h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:14px;line-height:1.15;}
+  .showcase-text p{color:rgba(58,34,51,0.7);line-height:1.65;font-size:1rem;max-width:44ch;margin-bottom:26px;}
+
   /* ---------- contact ---------- */
   .contact{background:var(--crema);}
   .contact-grid{
@@ -368,6 +382,7 @@
     </div>
     <nav class="links">
       <a href="#catalogo">Catálogo</a>
+      <a href="#visitanos">Más modelos</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -449,6 +464,21 @@
 </section>
 
 <!-- ============ ABOUT ============ -->
+<!-- ============ MÁS MODELOS (VISÍTANOS) ============ -->
+<section class="showcase" id="visitanos">
+  <div class="wrap showcase-grid">
+    <div class="showcase-photo">
+      <img src="images/exhibidor-tienda.jpg" alt="Exhibidor con la colección completa de sandalias Vale con Estilo">
+    </div>
+    <div class="showcase-text">
+      <span class="eyebrow">Tenemos más</span>
+      <h2 style="margin-top:10px;">Este catálogo es solo un adelanto</h2>
+      <p>Tenemos muchos más modelos, colores y estampados disponibles de los que alcanzamos a mostrar aquí. Escríbenos por WhatsApp y te mostramos todo lo que tenemos en el momento.</p>
+      <a href="#" id="showcaseWhatsapp" class="btn btn-dark" target="_blank" rel="noopener">Ver más modelos por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
 <section class="about" id="nosotros">
   <div class="wrap about-grid">
     <div class="about-art">
@@ -674,6 +704,7 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
 
 /* -------- link de whatsapp del header de contacto -------- */
 document.getElementById('whatsappChannel').href = `https://wa.me/${WHATSAPP_NUMBER}`;
+document.getElementById('showcaseWhatsapp').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola Vale con Estilo 👋, quiero ver más modelos disponibles')}`;
 
 /* -------- toast -------- */
 let toastTimer;
