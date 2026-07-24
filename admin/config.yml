@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: "valeconestilo7/vale-con-estilo"
   branch: main
 
 media_folder: "images"
