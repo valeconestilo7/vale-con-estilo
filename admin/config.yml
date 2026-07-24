@@ -24,4 +24,9 @@ collections:
               - { label: "Categoría", name: "categoria", widget: "select", options: ["Plana", "Plataforma", "Tacón", "Trenzada"] }
               - { label: "Descripción", name: "descripcion", widget: "text" }
               - { label: "Precio (COP)", name: "precio", widget: "number", value_type: "int" }
-              - { label: "Foto", name: "imagen", widget: "image", required: false, choose_url: false }
+              - label: "Fotos"
+                name: "imagenes"
+                widget: "list"
+                label_singular: "Foto"
+                required: false
+                field: { label: "Foto", name: "imagen", widget: "image", choose_url: false }
