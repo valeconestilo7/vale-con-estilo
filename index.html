@@ -209,11 +209,49 @@
   .card-icon.has-photo{
     padding:0;
     aspect-ratio:4/3;
+    position:relative;
+    display:block;
   }
   .card-icon.has-photo img{
     width:100%;height:100%;object-fit:cover;border-radius:14px;
     display:block;
   }
+
+  /* carrusel de fotos por producto */
+  .carousel{
+    position:relative;width:100%;height:100%;border-radius:14px;overflow:hidden;
+  }
+  .carousel-track{
+    display:flex;width:100%;height:100%;overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+  }
+  .carousel-track::-webkit-scrollbar{display:none;}
+  .carousel-slide{
+    flex:0 0 100%;width:100%;height:100%;object-fit:cover;
+    scroll-snap-align:start;display:block;
+  }
+  .carousel-btn{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:32px;height:32px;border-radius:50%;border:none;
+    background:rgba(58,34,51,0.55);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1rem;line-height:1;cursor:pointer;z-index:2;
+    transition:background .15s ease;
+  }
+  .carousel-btn:hover{background:rgba(58,34,51,0.8);}
+  .carousel-prev{left:8px;}
+  .carousel-next{right:8px;}
+  .carousel-dots{
+    position:absolute;bottom:8px;left:0;right:0;
+    display:flex;justify-content:center;gap:6px;z-index:2;
+  }
+  .carousel-dot{
+    width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.55);
+    transition:background .15s ease, transform .15s ease;
+  }
+  .carousel-dot.active{background:#fff;transform:scale(1.3);}
+
   .card-cat{
     font-family:'Space Mono',monospace;
     font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;
@@ -573,12 +611,14 @@ const WHATSAPP_NUMBER = "573204674356";
    descargar el JSON (por ejemplo, al abrir el archivo directo
    desde tu computador sin subirlo a internet). */
 const productosRespaldo = [
-  { id:1, nombre:"Sandalia Trenza Fucsia",  categoria:"Trenzada", descripcion:"Tira trenzada en fucsia vibrante, suela plana flexible.", precio:85000, imagen:"images/sandalia-trenza-fucsia.jpg" },
-  { id:2, nombre:"Plataforma Sol",          categoria:"Plataforma", descripcion:"Suela alta con tiras cruzadas al frente.", precio:110000, imagen:"" },
-  { id:3, nombre:"Plana Hebilla Multicolor",categoria:"Plana", descripcion:"Tira ancha con hebilla metálica. Disponible en varios colores.", precio:70000, imagen:"images/sandalia-hebilla-colores.jpg" },
-  { id:4, nombre:"Tacón Atardecer",         categoria:"Tacón", descripcion:"Tacón medio cómodo con correa al tobillo.", precio:135000, imagen:"" },
-  { id:5, nombre:"Plana Clásica Oran",      categoria:"Plana", descripcion:"Diseño de tira ancha estilo clásico. Disponible en varios colores.", precio:95000, imagen:"images/sandalia-oran-colores.jpg" },
-  { id:6, nombre:"Plataforma Raíz",         categoria:"Plataforma", descripcion:"Suela de esparto natural, estilo boho.", precio:120000, imagen:"" },
+  { id:1, nombre:"Sandalia Trenza Fucsia",  categoria:"Trenzada", descripcion:"Tira trenzada en fucsia vibrante, suela plana flexible.", precio:30000, imagenes:["images/sandalia-trenza-fucsia.jpg"] },
+  { id:2, nombre:"Plataforma Sol",          categoria:"Plataforma", descripcion:"Suela alta con tiras cruzadas al frente.", precio:110000, imagenes:[] },
+  { id:3, nombre:"Plana Hebilla Multicolor",categoria:"Plana", descripcion:"Tira ancha con hebilla metálica. Disponible en varios colores.", precio:30000, imagenes:["images/sandalia-hebilla-colores.jpg"] },
+  { id:4, nombre:"Tacón Atardecer",         categoria:"Tacón", descripcion:"Tacón medio cómodo con correa al tobillo.", precio:135000, imagenes:[] },
+  { id:5, nombre:"Plana Clásica Oran",      categoria:"Plana", descripcion:"Diseño de tira ancha estilo clásico. Disponible en varios colores.", precio:29996, imagenes:["images/sandalia-oran-colores.jpg"] },
+  { id:6, nombre:"Plataforma Raíz",         categoria:"Plataforma", descripcion:"Suela de esparto natural, estilo boho.", precio:120000, imagenes:[] },
+  { id:7, nombre:"Sandalia Lazo Dorado",    categoria:"Plana", descripcion:"Sandalia plana con lazo grande y hebilla dorada. Disponible en beige, menta, rojo, azul, siena, lila, fucsia y negro.", precio:30000, imagenes:["images/whatsapp-image-2026-07-22-at-9.21.38-am.jpeg"] },
+  { id:8, nombre:"Sandalia Animal Print",   categoria:"Plana", descripcion:"Sandalia plana con textura tejida en estampado animal print. Disponible en negro, mostaza, beige y crema.", precio:29997, imagenes:["images/whatsapp-image-2026-07-22-at-9.21.39-am.jpeg"] },
 ];
 let productos = [];
 const TALLAS = [35,36,37,38,39,40];
@@ -597,11 +637,12 @@ function renderGrid(filter){
   grid.innerHTML = "";
   const lista = filter === "todas" ? productos : productos.filter(p => p.categoria === filter);
   lista.forEach((p, i) => {
+    const imagenes = Array.isArray(p.imagenes) ? p.imagenes.filter(Boolean) : [];
     const card = document.createElement('div');
     card.className = "card";
     card.style.animationDelay = (i * 0.06) + "s";
     card.innerHTML = `
-      <div class="card-icon${p.imagen ? ' has-photo' : ''}">${p.imagen ? `<img src="${p.imagen}" alt="${p.nombre}">` : sandalIcon}</div>
+      <div class="card-icon${imagenes.length ? ' has-photo' : ''}">${imagenes.length ? buildCarousel(imagenes, p.nombre) : sandalIcon}</div>
       <div class="card-cat">${p.categoria}</div>
       <h3>${p.nombre}</h3>
       <p class="desc">${p.descripcion}</p>
@@ -623,7 +664,50 @@ function renderGrid(filter){
       showToast(`${p.nombre} (talla ${select.value}) agregada al pedido`);
       setTimeout(() => { btn.textContent = "Agregar"; btn.classList.remove('added'); }, 1200);
     });
+    if(imagenes.length > 1) initCarousel(card);
     grid.appendChild(card);
+  });
+}
+
+/* -------- carrusel de fotos por producto -------- */
+function buildCarousel(imagenes, nombre){
+  const slides = imagenes.map(src => `<img class="carousel-slide" src="${src}" alt="${nombre}">`).join("");
+  if(imagenes.length === 1){
+    return `<div class="carousel"><div class="carousel-track">${slides}</div></div>`;
+  }
+  const dots = imagenes.map((_, i) => `<span class="carousel-dot${i===0 ? ' active' : ''}"></span>`).join("");
+  return `
+    <div class="carousel">
+      <div class="carousel-track">${slides}</div>
+      <button class="carousel-btn carousel-prev" type="button" aria-label="Foto anterior">‹</button>
+      <button class="carousel-btn carousel-next" type="button" aria-label="Foto siguiente">›</button>
+      <div class="carousel-dots">${dots}</div>
+    </div>
+  `;
+}
+
+function initCarousel(card){
+  const track = card.querySelector('.carousel-track');
+  const prev = card.querySelector('.carousel-prev');
+  const next = card.querySelector('.carousel-next');
+  const dots = card.querySelectorAll('.carousel-dot');
+  const slideCount = track.children.length;
+
+  function goTo(index){
+    index = (index + slideCount) % slideCount;
+    track.scrollTo({ left: track.clientWidth * index, behavior: 'smooth' });
+  }
+  prev.addEventListener('click', () => {
+    const current = Math.round(track.scrollLeft / track.clientWidth);
+    goTo(current - 1);
+  });
+  next.addEventListener('click', () => {
+    const current = Math.round(track.scrollLeft / track.clientWidth);
+    goTo(current + 1);
+  });
+  track.addEventListener('scroll', () => {
+    const current = Math.round(track.scrollLeft / track.clientWidth);
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
   });
 }
 
