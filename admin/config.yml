@@ -2,6 +2,8 @@ backend:
   name: github
   repo: "valeconestilo7/vale-con-estilo"
   branch: main
+  base_url: "https://vale-con-estilo-login.valeconestilo7.workers.dev"
+  auth_endpoint: "auth"
 
 media_folder: "images"
 public_folder: "images"
