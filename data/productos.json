@@ -2,9 +2,9 @@
   "productos": [
     {
       "id": 1,
-      "nombre": "Sandalia Trenza Bicolor",
+      "nombre": "Sandalia Trenza Doble",
       "categoria": "Trenzada",
-      "descripcion": "Sandalia plana con doble tira trenzada en blanco y negro, suela de contraste. Diseño versátil para el día a día.",
+      "descripcion": "Sandalia plana con doble tira, una lisa y una trenzada, suela cómoda y flexible. Disponible en fucsia, camel y negro/blanco. Diseño versátil para el día a día.",
       "precio": 30000,
       "imagenes": [
         "images/sandalia-hebilla-colores.jpg",
