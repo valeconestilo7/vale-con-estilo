@@ -57,6 +57,24 @@
       "imagenes": [
         "images/whatsapp-image-2026-07-22-at-9.21.39-am.jpeg"
       ]
+    },
+    {
+      "id": 6,
+      "nombre": "Sandalia Chapetas",
+      "categoria": "Plana",
+      "descripcion": "Sandalia tipo chancla con tiras finas y detalle de chapetas metálicas doradas y plateadas. Diseño cómodo y ligero, ideal para el día a día. Disponible en beige, blanco, lila, rojo, negro, champagne, fucsia y dorado rosa.",
+      "precio": 20000,
+      "imagenes": [
+        "images/sandalia_samys_4.jpg",
+        "images/sandalia_samys_1.jpg",
+        "images/sandalia_samys_2.jpg",
+        "images/sandalia_samys_3.jpg",
+        "images/sandalia_samys_5.jpg",
+        "images/sandalia_samys_6.jpg",
+        "images/sandalia_samys_7.jpg",
+        "images/sandalia_samys_8.jpg",
+        "images/sandalia_samys_9.jpg"
+      ]
     }
   ]
 }
