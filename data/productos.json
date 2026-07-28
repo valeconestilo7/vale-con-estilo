@@ -67,6 +67,21 @@
         "images/sandalia_samys_8.jpg",
         "images/sandalia_samys_9.jpg"
       ]
+    },
+    {
+      "id": 7,
+      "nombre": "Sandalia Floral Brillante",
+      "categoria": "Plana",
+      "descripcion": "Sandalia tipo mule con tira ancha en tela con estampado floral y brillo, suela cuadrada cómoda. Disponible en negro, blanco, celeste y rosa.",
+      "precio": 26000,
+      "imagenes": [
+        "images/whatsapp-image-2026-07-26-at-6.03.23-pm-1-.jpeg",
+        "images/whatsapp-image-2026-07-26-at-6.03.24-pm-1-.jpeg",
+        "images/whatsapp-image-2026-07-26-at-6.03.24-pm-2-.jpeg",
+        "images/whatsapp-image-2026-07-26-at-6.03.24-pm-6-.jpeg",
+        "images/whatsapp-image-2026-07-26-at-6.03.24-pm-7-.jpeg",
+        "images/whatsapp-image-2026-07-26-at-6.03.25-pm-2-.jpeg"
+      ]
     }
   ]
 }
