@@ -122,6 +122,19 @@
         "images/whatsapp-image-2026-07-27-at-9.51.53-pm-4-.jpeg"
       ],
       "precio": 31000
+    },
+    {
+      "id": 10,
+      "nombre": "Sandalia Trenza Metalizada",
+      "categoria": "Trenzada",
+      "descripcion": "Sandalia tipo chancla con tira en acabado metalizado y detalle de pedrería en la orilla. Diseño brillante ideal para looks de fiesta. Disponible en dorado, plata y rosa dorado.",
+      "precio": 31000,
+      "imagenes": [
+        "images/whatsapp-image-2026-07-27-at-9.51.52-pm-5-.jpeg",
+        "images/whatsapp-image-2026-07-27-at-9.51.51-pm-1-.jpeg",
+        "images/whatsapp-image-2026-07-27-at-9.51.51-pm-2-.jpeg",
+        "images/whatsapp-image-2026-07-27-at-9.51.53-pm.jpeg"
+      ]
     }
   ]
 }
